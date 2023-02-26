@@ -8,14 +8,25 @@
 import SwiftUI
 
 struct ContentView: View {
+    let recipes: [String] = []
     var body: some View {
         VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
+            Text("What will you cook today?")
+                .font(.title)
+                .bold()
+            if recipes.isEmpty {
+                Text("You don't have any recipes yet")
+                    .frame(maxHeight: .infinity)
+            } else {
+                List {
+                    ForEach(recipes, id: \.first) { recipe in
+                        Text(recipe)
+                    }
+                }
+            }
+            
         }
-        .padding()
+        .padding([.bottom, .top], 40)
     }
 }
 
