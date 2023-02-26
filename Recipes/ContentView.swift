@@ -15,8 +15,19 @@ struct ContentView: View {
                 .font(.title)
                 .bold()
             if recipes.isEmpty {
-                Text("You don't have any recipes yet")
-                    .frame(maxHeight: .infinity)
+                VStack(spacing: 10) {
+                    Text("You don't have any recipes yet")
+                    Button {
+                        
+                    } label: {
+                        HStack {
+                            Text("Add recipe")
+                            Image(systemName: "plus")
+                        }
+                    }
+                    .buttonStyle(.borderedProminent)
+                }
+                .frame(maxHeight: .infinity)
             } else {
                 List {
                     ForEach(recipes, id: \.first) { recipe in
