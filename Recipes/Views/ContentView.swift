@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct ContentView: View {
-    let recipes: [String] = []
+    let recipes: [Recipe] = testRecipes
     var body: some View {
         VStack {
             Text("What will you cook today?")
@@ -27,13 +27,14 @@ struct ContentView: View {
                     }
                     .buttonStyle(.borderedProminent)
                 }
-                .frame(maxHeight: .infinity)
             } else {
                 List {
-                    ForEach(recipes, id: \.first) { recipe in
-                        Text(recipe)
+                    ForEach(recipes, id: \.title) { recipe in
+                        RecipeView(recipe: recipe)
                     }
+                    .listRowInsets(EdgeInsets(top: 0, leading: 0, bottom: 10, trailing: 10))
                 }
+                
             }
             
         }

@@ -9,5 +9,7 @@ import Foundation
 
 struct Recipe {
     let title: String
-    let duration: Duration
+    let duration: Int
 }
+
+let testRecipes = [Recipe(title: "Kurczak teriyaki", duration: 25), Recipe(title: "Sałatka", duration: 10), Recipe(title: "Makaron udon", duration: 3)]

@@ -8,23 +8,23 @@
 import SwiftUI
 
 struct RecipeView: View {
+    let recipe: Recipe
     var body: some View {
-        HStack(spacing: 30) {
+        HStack(spacing: 25.0) {
             Image(systemName: "fork.knife")
-            VStack {
-                Text("Kurczak Teriyaki")
-                Text("25 min")
+            VStack(alignment: .leading) {
+                Text(recipe.title)
+                Text("\(recipe.duration) min")
                     .font(.caption)
             }
+            Spacer()
         }
-        .frame(alignment: .leading)
-        .padding(10)
-        .border(.black)
+        .padding()
     }
 }
 
 struct RecipeView_Previews: PreviewProvider {
     static var previews: some View {
-        RecipeView()
+        RecipeView(recipe: Recipe(title: "Kurczak teriyaki", duration: 25))
     }
 }
