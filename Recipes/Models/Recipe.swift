@@ -8,8 +8,13 @@
 import Foundation
 
 struct Recipe {
-    let title: String
-    let duration: Int
+    var title: String
+    var duration: Int
+    var ingredients: [Ingredient]
+    var preparationSteps: [String]
 }
 
-let testRecipes = [Recipe(title: "Kurczak teriyaki", duration: 25), Recipe(title: "Sałatka", duration: 10), Recipe(title: "Makaron udon", duration: 3)]
+let testRecipes = [Recipe(title: "Kurczak teriyaki", duration: 25, ingredients: testIngredients, preparationSteps: testPreparationSteps),
+                   Recipe(title: "Sałatka", duration: 10, ingredients: testIngredients, preparationSteps: testPreparationSteps),
+                   Recipe(title: "Makaron udon", duration: 3, ingredients: testIngredients, preparationSteps: testPreparationSteps)]
+let testPreparationSteps = ["Ugotować makaron udon", "Na patelnię wlać składniki sosu teriyaki", "Posypać uprażonym sezamem"]

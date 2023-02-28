@@ -25,6 +25,6 @@ struct RecipeView: View {
 
 struct RecipeView_Previews: PreviewProvider {
     static var previews: some View {
-        RecipeView(recipe: Recipe(title: "Kurczak teriyaki", duration: 25))
+        RecipeView(recipe: Recipe(title: "Kurczak teriyaki", duration: 25, ingredients: testIngredients, preparationSteps: testPreparationSteps))
     }
 }
