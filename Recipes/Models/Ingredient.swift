@@ -9,7 +9,7 @@ import Foundation
 
 struct Ingredient {
     var name: String
-    var amount: Double
+    var amount: Int
     var unit: String?
 }
 

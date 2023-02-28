@@ -24,9 +24,18 @@ struct DetailsView: View {
                     }
                 }
                 Text("Ingredients")
-                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .font(.headline)
+                VStack(alignment: .leading) {
+                    ForEach(recipe.ingredients, id: \.name) { ingredient in
+                        HStack(alignment: .firstTextBaseline) {
+                            Text("\(ingredient.amount)\(ingredient.unit ?? "x")")
+                                .bold()
+                            Text(ingredient.name)
+                        }
+                    }
+                }
                 Text("Preparation")
-                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .font(.headline)
                 Spacer()
             }
             .padding()
