@@ -36,6 +36,11 @@ struct DetailsView: View {
                 }
                 Text("Preparation")
                     .font(.headline)
+                VStack(alignment: .leading) {
+                    ForEach(Array(recipe.preparationSteps.enumerated()), id: \.element) { index, preparationStep in
+                        Text("\(index+1). \(preparationStep)")
+                    }
+                }
                 Spacer()
             }
             .padding()
