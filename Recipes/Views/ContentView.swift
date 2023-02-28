@@ -32,7 +32,7 @@ struct ContentView: View {
                     ForEach(recipes, id: \.title) { recipe in
                         RecipeView(recipe: recipe)
                     }
-                    .listRowInsets(EdgeInsets(top: 0, leading: 0, bottom: 10, trailing: 10))
+                    .listRowInsets(EdgeInsets(top: 0, leading: 0, bottom: 10, trailing: 0))
                 }
                 
             }
