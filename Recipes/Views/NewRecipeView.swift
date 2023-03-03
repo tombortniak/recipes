@@ -9,21 +9,16 @@ import SwiftUI
 
 struct NewRecipeView: View {
     @State var recipeName = "Recipe name"
-    @State var hours = ""
-    @State var minutes = ""
     var body: some View {
         VStack {
-            TextField("Recipe name", text: $recipeName)
-                .fixedSize()
+            HStack {
+                TextField("Recipe name", text: $recipeName)
+                    .fixedSize()
                 .font(.title)
-            VStack(spacing: 20) {
+                Spacer()
                 HStack {
                     Image(systemName: "clock")
-                    TextField("Hours", text: $hours)
-                        .keyboardType(.numberPad)
-                    TextField("Minutes", text: $minutes)
-                        .keyboardType(.numberPad)
-                    Spacer()
+                    Text("0:30")
                 }
             }
             Spacer()
