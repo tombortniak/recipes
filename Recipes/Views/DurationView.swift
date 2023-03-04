@@ -8,22 +8,22 @@
 import SwiftUI
 
 struct DurationView: View {
-    @State var selectedHours = 0
-    @State var selectedMins = 0
+    @Binding var isDurationPickerShown: Bool
+    @Binding public var recipeDuration: Duration
     let hours = Array(0...24)
     let mins = Array(0...60)
     var body: some View {
         VStack {
             Text("Select duration")
             HStack(spacing: 0) {
-                Picker("Select number of hours", selection: $selectedHours) {
+                Picker("Select number of hours", selection: $recipeDuration.hours) {
                     ForEach(hours, id: \.self) {
                         Text("\($0) hours")
                     }
                 }
                 .pickerStyle(.wheel)
                 .scaledToFit()
-                Picker("Select number of minutes", selection: $selectedMins) {
+                Picker("Select number of minutes", selection: $recipeDuration.minutes) {
                     ForEach(mins, id: \.self) {
                         Text("\($0) minutes")
                     }
@@ -32,7 +32,7 @@ struct DurationView: View {
                 .scaledToFit()
             }
             Button {
-                
+                isDurationPickerShown.toggle()
             } label: {
                 Text("Set")
             }
@@ -42,6 +42,6 @@ struct DurationView: View {
 
 struct DurationView_Previews: PreviewProvider {
     static var previews: some View {
-        DurationView()
+        DurationView(isDurationPickerShown: .constant(true), recipeDuration: .constant(Duration(hours: 0, minutes: 30)))
     }
 }
