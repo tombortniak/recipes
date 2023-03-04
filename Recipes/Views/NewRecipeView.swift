@@ -9,6 +9,7 @@ import SwiftUI
 
 struct NewRecipeView: View {
     @State var recipeName = "Recipe name"
+    @State var isDurationPickerShown = false
     var body: some View {
         VStack {
             HStack {
@@ -19,6 +20,14 @@ struct NewRecipeView: View {
                 HStack {
                     Image(systemName: "clock")
                     Text("0:30")
+                }
+                .contentShape(Rectangle())
+                .onTapGesture {
+                    isDurationPickerShown.toggle()
+                }
+                .sheet(isPresented: $isDurationPickerShown) {
+                    DurationView()
+                        .presentationDetents([.fraction(0.4)])
                 }
             }
             Spacer()
